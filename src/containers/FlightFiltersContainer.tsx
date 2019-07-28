@@ -24,7 +24,7 @@ const FlightFiltersContainer: React.FC<IProps> = ({
 }): JSX.Element => {
 	useEffect(() => {
 		fetchUpcomingFlights();
-	}, []);
+	}, [fetchUpcomingFlights]);
 
 	if (isLoading) {
 		return (

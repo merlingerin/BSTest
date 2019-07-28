@@ -7,7 +7,7 @@ import {
 import { get } from 'lodash';
 import { AxiosResponse, AxiosError, AxiosRequestConfig } from 'axios';
 import { Dispatch } from 'redux';
-import { IFilters, IReportResponseItem } from '../../../interfaces';
+import { IFilters } from '../../../interfaces';
 
 const requestStart = () => ({
 	type: transferList_request,

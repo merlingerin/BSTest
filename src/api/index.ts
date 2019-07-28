@@ -1,4 +1,4 @@
-import Axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
+import Axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { Http } from './services/HttpService';
 import AuthorizationService from './services/AuthorizationService';
 import { IUpcomingFlight, IRepotsResponse } from '../interfaces';
