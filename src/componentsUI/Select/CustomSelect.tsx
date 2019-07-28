@@ -5,7 +5,13 @@ import DefaultMenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import { ISelectProps } from './interface';
 
-export const CustomSelect: React.FC<ISelectProps<string>> = ({ name, id, options, onChange, renderItem }) => {
+export const CustomSelect: React.FC<ISelectProps<string>> = ({
+	name,
+	id,
+	options,
+	onChange,
+	renderItem,
+}) => {
 	const [option, setOption] = useState({
 		value: 0,
 		name: '',

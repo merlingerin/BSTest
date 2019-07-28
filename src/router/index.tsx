@@ -1,9 +1,9 @@
-import React from "react";
-import { Switch, Route } from "react-router-dom";
-import PassengerPage from "../pages/reportPages/PassengerPage";
-import TransferPage from "../pages/reportPages/TransferPage";
-import RoomingPage from "../pages/reportPages/RoomingPage";
-import FlightsPage from "../pages/FlightsPage";
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
+import PassengerPage from '../pages/reportPages/PassengerPage';
+import TransferPage from '../pages/reportPages/TransferPage';
+import RoomingPage from '../pages/reportPages/RoomingPage';
+import FlightsPage from '../pages/FlightsPage';
 
 const RootRoute = () => {
 	return (

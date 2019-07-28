@@ -1,14 +1,14 @@
 import {
 	upcomingFlights_failure,
 	upcomingFlights_request,
-	upcomingFlights_success
-} from "../actionTypes";
-import { IApiRequestAction, IApiRequestState } from "../interfaces";
+	upcomingFlights_success,
+} from '../actionTypes';
+import { IApiRequestAction, IApiRequestState } from '../interfaces';
 
 const initialsState = {
 	isLoading: false,
 	data: [],
-	error: {}
+	error: {},
 };
 
 export const upcomingFlights = (
@@ -20,19 +20,19 @@ export const upcomingFlights = (
 			return {
 				...state,
 				isLoading: true,
-				error: {}
+				error: {},
 			};
 		case upcomingFlights_success:
 			return {
 				...state,
 				isLoading: false,
-				data: [...payload]
+				data: [...payload],
 			};
 		case upcomingFlights_failure:
 			return {
 				...state,
 				isLoading: false,
-				error: { ...error }
+				error: { ...error },
 			};
 		default:
 			return state;

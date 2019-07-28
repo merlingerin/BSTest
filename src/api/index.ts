@@ -6,7 +6,9 @@ import { IUpcomingFlight, IRepotsResponse } from '../interfaces';
 export class Api {
 	http: AxiosInstance;
 	baseUrl: string;
-	authorization: AuthorizationService = new AuthorizationService('https://dev-api.blue-style.cz/account/v1');
+	authorization: AuthorizationService = new AuthorizationService(
+		'https://dev-api.blue-style.cz/account/v1'
+	);
 	upcomingFlights: Http<IUpcomingFlight[]>;
 	roomingList: Http<any[]>;
 	passengerList: Http<any[]>;
@@ -19,7 +21,10 @@ export class Api {
 			baseURL: baseUrl,
 			timeout: 7000,
 		});
-		this.upcomingFlights = new Http<IUpcomingFlight[]>(this.http, '/Definitions/getUpcomingFlights');
+		this.upcomingFlights = new Http<IUpcomingFlight[]>(
+			this.http,
+			'/Definitions/getUpcomingFlights'
+		);
 		this.roomingList = new Http<IRepotsResponse[]>(this.http, '/Reports/roomingList');
 		this.passengerList = new Http<IRepotsResponse[]>(this.http, '/Reports/flightPassengerList');
 		this.transferList = new Http<IRepotsResponse[]>(this.http, '/Reports/transferList');

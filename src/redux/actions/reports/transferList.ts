@@ -1,5 +1,9 @@
 import Api from '../../../api';
-import { transferList_failure, transferList_request, transferList_success } from '../../actionTypes';
+import {
+	transferList_failure,
+	transferList_request,
+	transferList_success,
+} from '../../actionTypes';
 import { get } from 'lodash';
 import { AxiosResponse, AxiosError, AxiosRequestConfig } from 'axios';
 import { Dispatch } from 'redux';
@@ -22,7 +26,9 @@ const requestFailure = (error: {}) => ({
 	error: error,
 });
 
-export const fetchTransferList = (params: IFilters, config?: AxiosRequestConfig) => (dispatch: Dispatch): Promise<AxiosResponse> => {
+export const fetchTransferList = (params: IFilters, config?: AxiosRequestConfig) => (
+	dispatch: Dispatch
+): Promise<AxiosResponse> => {
 	dispatch(requestStart());
 
 	return Api.transferList.create(params || {}, { ...config }).then(
@@ -35,6 +41,6 @@ export const fetchTransferList = (params: IFilters, config?: AxiosRequestConfig)
 		(error: AxiosError) => {
 			dispatch(requestFailure(get(error, 'response.data', error.message)));
 			return Promise.reject(error);
-		},
+		}
 	);
 };

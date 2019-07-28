@@ -27,7 +27,7 @@ const TableList: React.FC<IProps<IReportResponseItem>> = ({ data }) => {
 	];
 	return (
 		<>
-			{map(data, item => {
+			{map(data, (item) => {
 				return <TableRow key={item.id} {...{ listItem: item }} />;
 			})}
 		</>

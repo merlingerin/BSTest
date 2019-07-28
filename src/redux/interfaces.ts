@@ -1,4 +1,4 @@
-import { IUpcomingFlight } from "../interfaces";
+import { IUpcomingFlight } from '../interfaces';
 
 export interface IFlightsFiltersState {
 	FromDate: string;

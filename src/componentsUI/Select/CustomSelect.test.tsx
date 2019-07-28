@@ -7,7 +7,16 @@ import ReactDOM from 'react-dom';
 describe('CustomSelect component', () => {
 	it('Render without crashing', () => {
 		const div = document.createElement('div');
-		ReactDOM.render(<CustomSelect name="FromDate" id="FromDate" options={['a', 'b', 'c']} onChange={() => {}} MenuItem={SelectPnlItem} />, div);
+		ReactDOM.render(
+			<CustomSelect
+				name="FromDate"
+				id="FromDate"
+				options={['a', 'b', 'c']}
+				onChange={() => {}}
+				MenuItem={SelectPnlItem}
+			/>,
+			div
+		);
 	});
 	// describe('Select', () => {
 	// 	it('Render OptionsList, children length equal option length', () => {

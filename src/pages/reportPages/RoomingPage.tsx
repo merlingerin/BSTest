@@ -9,7 +9,13 @@ import { IRepotsResponse } from '../../interfaces';
 import Table from '../../componentsUI/ReportTableList/Table';
 import { DefaultSpinnder } from '../../componentsUI/Spinner';
 
-export const RoomingPage: React.FC<IReportPageProps<IRepotsResponse>> = ({ error, fetchReportList, isLoading, flightsFilters, listData }) => {
+export const RoomingPage: React.FC<IReportPageProps<IRepotsResponse>> = ({
+	error,
+	fetchReportList,
+	isLoading,
+	flightsFilters,
+	listData,
+}) => {
 	useEffect(() => {
 		// fetchReportList(flightsFilters);
 		fetchReportList({
@@ -47,5 +53,5 @@ const mapDispatchToProps = {
 
 export default connect(
 	mapStateToProps,
-	mapDispatchToProps,
+	mapDispatchToProps
 )(RoomingPage);

@@ -1,13 +1,13 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 
-import { fetchUpcomingFlights, setFilter } from "../redux/actions";
+import { fetchUpcomingFlights, setFilter } from '../redux/actions';
 
-import FlightFilters from "../componentsUI/FlightFilter";
-import { AxiosRequestConfig } from "axios";
-import { IUpcomingFlight } from "../interfaces";
-import { getIsLoading } from "../redux/selectors/apiRequestState";
-import { DefaultSpinnder } from "../componentsUI/Spinner";
+import FlightFilters from '../componentsUI/FlightFilter';
+import { AxiosRequestConfig } from 'axios';
+import { IUpcomingFlight } from '../interfaces';
+import { getIsLoading } from '../redux/selectors/apiRequestState';
+import { DefaultSpinnder } from '../componentsUI/Spinner';
 
 interface IProps {
 	fetchUpcomingFlights: (config?: AxiosRequestConfig) => Promise<any>;
@@ -20,7 +20,7 @@ const FlightFiltersContainer: React.FC<IProps> = ({
 	fetchUpcomingFlights,
 	setFilter,
 	upcomingFlights,
-	isLoading
+	isLoading,
 }): JSX.Element => {
 	useEffect(() => {
 		fetchUpcomingFlights();
@@ -34,20 +34,18 @@ const FlightFiltersContainer: React.FC<IProps> = ({
 		);
 	}
 
-	return (
-		<FlightFilters setFilter={setFilter} upcomingFlights={upcomingFlights} />
-	);
+	return <FlightFilters setFilter={setFilter} upcomingFlights={upcomingFlights} />;
 };
 
 const mapStateToProps = (state: any) => ({
 	filters: state.flightsFilters,
 	upcomingFlights: state.upcomingFlights.data,
-	isLoading: getIsLoading(state, "upcomingFlights")
+	isLoading: getIsLoading(state, 'upcomingFlights'),
 });
 
 const mapDispatchToProp = {
 	fetchUpcomingFlights,
-	setFilter
+	setFilter,
 };
 
 export default connect(

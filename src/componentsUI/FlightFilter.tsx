@@ -19,7 +19,13 @@ const FlightFilter: React.FC<IProps> = ({ setFilter, upcomingFlights }) => {
 	return (
 		<div className="row flex-container flex-row align-start justify-around">
 			<div className="container-item size-15">
-				<CustomSelect name="FromDate" id="FromDate" options={getFlightDates(upcomingFlights)} onChange={_handleSelectDateChange} renderItem={SelectDateItem} />
+				<CustomSelect
+					name="FromDate"
+					id="FromDate"
+					options={getFlightDates(upcomingFlights)}
+					onChange={_handleSelectDateChange}
+					renderItem={SelectDateItem}
+				/>
 			</div>
 			<div className="container-item size-15">
 				<CustomSelect
@@ -41,7 +47,13 @@ const FlightFilter: React.FC<IProps> = ({ setFilter, upcomingFlights }) => {
 				/>
 			</div>
 			<div className="container-item size-15">
-				<CustomSelect name="PnlName" id="PnlName" options={getPnlNames(upcomingFlights)} onChange={_handleSelectDateChange} renderItem={SelectPnlItem} />
+				<CustomSelect
+					name="PnlName"
+					id="PnlName"
+					options={getPnlNames(upcomingFlights)}
+					onChange={_handleSelectDateChange}
+					renderItem={SelectPnlItem}
+				/>
 			</div>
 		</div>
 	);

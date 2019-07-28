@@ -12,7 +12,10 @@ import TableRow from './TableRow';
 describe('Table component', () => {
 	it('Render without crashing', () => {
 		const div = document.createElement('div');
-		ReactDOM.render(<Table listData={listData as IRepotsResponse} tableTitle="Report table" />, div);
+		ReactDOM.render(
+			<Table listData={listData as IRepotsResponse} tableTitle="Report table" />,
+			div
+		);
 	});
 	it('Render correct props', () => {
 		const tableTitle = 'Report table';

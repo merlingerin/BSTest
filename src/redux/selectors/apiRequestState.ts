@@ -1,4 +1,4 @@
-import { get } from "lodash";
+import { get } from 'lodash';
 
 export const getIsLoading = (state: any, pathToReducer: string) =>
 	get(state, `${pathToReducer}.isLoading`, false);
