@@ -6,6 +6,8 @@ export class Http<T> {
   constructor(httpClient: AxiosInstance, url: string = "") {
     this.url = url;
     this.http = httpClient;
+    this.http.defaults.headers.post["Content-Type"] =
+      "application/json-patch+json";
   }
 
   getAll(config?: AxiosRequestConfig) {
@@ -13,6 +15,11 @@ export class Http<T> {
   }
 
   create(data?: object, config?: AxiosRequestConfig) {
-    return this.http.post<T>(this.url, data, config);
+    return this.http.post<T>(this.url, data, {
+      ...config,
+      headers: {
+        "Content-Type": "application/json-patch+json"
+      }
+    });
   }
 }
