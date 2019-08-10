@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
 import { create } from 'react-test-renderer';
 import listData from '../../__mocks__/api/reportsResponse.json';
 import { IRepotsResponse } from '../../interfaces';
-import { shallow } from 'enzyme';
 
 import Table from './Table';
-import TableList from './TableList';
+import TableList from './Table';
 import TableRow from './TableRow';
 
 describe('Table component', () => {
@@ -39,11 +39,21 @@ describe('Table component', () => {
 	it('Render TableRow', () => {
 		const tableRowData = listData.Result[0];
 		const tableRow = create(<TableRow listItem={tableRowData} />);
-		const tableList = create(<TableList data={listData.Result} />);
 		const rootTableRow = tableRow.root;
-		const rootTableList = tableList.root;
 
 		expect(rootTableRow.props.listItem).toEqual(tableRowData);
-		expect(rootTableList.children.length).toBe(Object.keys(tableRowData).length);
+	});
+
+	it('should correct render exist fields in data array', () => {
+		const tableRowData = listData.Result[0];
+		const shallowTableRow = shallow(<TableRow listItem={tableRowData} />);
+
+		expect(
+			shallowTableRow
+				.find('.collection .collection-item')
+				.at(0)
+				.text()
+		).toEqual(`FlightNo: ${tableRowData.FlightNo}`);
+		expect(shallowTableRow.find('.collection')).toHaveLength(2);
 	});
 });

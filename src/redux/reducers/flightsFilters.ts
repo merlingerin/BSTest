@@ -3,11 +3,11 @@ import { IFlightsFiltersState, IFlightsFiltersAction } from '../interfaces';
 import { IFilters } from '../../interfaces';
 
 const initialsState: IFilters = {
-	FromDate: '',
-	DepartureAirport: '',
-	ArrivalAirport: '',
+	ArrivalAirport: 'HRG',
+	DepartureAirport: 'PRG',
+	FromDate: '2019-08-09',
 	PnlName: '',
-	ToDate: '',
+	ToDate: '2019-08-09',
 };
 
 export const flightsFilters = (

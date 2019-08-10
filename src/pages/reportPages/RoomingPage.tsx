@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { getIsLoading, getError } from '../../redux/selectors/apiRequestState';
 import { fetchRoomingList } from '../../redux/actions';
@@ -16,15 +16,9 @@ export const RoomingPage: React.FC<IReportPageProps<IRepotsResponse>> = ({
 	flightsFilters,
 	listData,
 }) => {
+	const [_listData, _setList] = useState<IRepotsResponse>({} as IRepotsResponse);
 	useEffect(() => {
-		// fetchReportList(flightsFilters);
-		fetchReportList({
-			FromDate: '2018-07-26T13:07:15.624Z',
-			DepartureAirport: 'HRG',
-			ArrivalAirport: 'PRG',
-			PnlName: 'QS1241',
-			ToDate: '2019-07-28T13:07:15.624Z',
-		});
+		fetchReportList(flightsFilters).then((response) => _setList(response.data));
 	}, [fetchReportList, flightsFilters]);
 	return (
 		<div className="container flights-page">
@@ -35,7 +29,7 @@ export const RoomingPage: React.FC<IReportPageProps<IRepotsResponse>> = ({
 						<DefaultSpinnder />
 					</div>
 				)}
-				<Table listData={listData} />
+				{!isLoading && <Table listData={_listData} />}
 			</div>
 		</div>
 	);

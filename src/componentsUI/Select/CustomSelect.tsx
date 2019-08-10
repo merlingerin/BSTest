@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { get, map } from 'lodash';
+import { get, map, startCase } from 'lodash';
 import InputLabel from '@material-ui/core/InputLabel';
 import DefaultMenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
@@ -20,13 +20,12 @@ export const CustomSelect: React.FC<ISelectProps<string>> = ({
 	function _handleChange(event: React.ChangeEvent<{ name?: string; value: unknown }>) {
 		const name = get(event, 'target.name', '');
 		const value = get(event, 'target.value', '');
-		console.log('name', name, 'value', value);
 		onChange({ name: name, value: value });
 		setOption({ name: name, value: value });
 	}
 	return (
 		<div>
-			<InputLabel htmlFor="demo-controlled-open-select">{name.toUpperCase()}</InputLabel>
+			<InputLabel htmlFor="demo-controlled-open-select">{startCase(name).toUpperCase()}</InputLabel>
 			<Select
 				value={option.value}
 				onChange={_handleChange}

@@ -1,11 +1,12 @@
 import React from 'react';
 import { IUpcomingFlight } from '../interfaces';
-import { getFlightDates, getAirportByType, getPnlNames } from '../redux/selectors/upcomingFlights';
+import { getAirportByType, getPnlNames } from '../redux/selectors/upcomingFlights';
 import { ISelectValue } from './Select/interface';
 import { CustomSelect } from './Select/CustomSelect';
-import SelectDateItem from '../componentsUI/Select/SelectDateItem';
 import SelectAirportItem from '../componentsUI/Select/SelectAirportItem';
 import SelectPnlItem from './Select/SelectPnlItem';
+
+import { DatePicker } from '../componentsUI/DatePicker';
 
 interface IProps {
 	setFilter: (filter: { name: string; value: string }) => void;
@@ -19,12 +20,25 @@ const FlightFilter: React.FC<IProps> = ({ setFilter, upcomingFlights }) => {
 	return (
 		<div className="row flex-container flex-row align-start justify-around">
 			<div className="container-item size-15">
-				<CustomSelect
+				<DatePicker
 					name="FromDate"
+					label="From Date"
 					id="FromDate"
-					options={getFlightDates(upcomingFlights)}
-					onChange={_handleSelectDateChange}
-					renderItem={SelectDateItem}
+					onChange={(value: any) => {
+						_handleSelectDateChange({ name: 'FromDate', value });
+						return null;
+					}}
+				/>
+			</div>
+			<div className="container-item size-15">
+				<DatePicker
+					name="ToDate"
+					label="To Date"
+					id="ToDate"
+					onChange={(value: any) => {
+						_handleSelectDateChange({ name: 'ToDate', value });
+						return null;
+					}}
 				/>
 			</div>
 			<div className="container-item size-15">
@@ -37,7 +51,7 @@ const FlightFilter: React.FC<IProps> = ({ setFilter, upcomingFlights }) => {
 				/>
 			</div>
 			<div className="container-item size-15">
-				<i className="small material-icons arrow-icon">arrow_forward</i>
+				{/* <i className="small material-icons arrow-icon">arrow_forward</i> */}
 				<CustomSelect
 					name="ArrivalAirport"
 					id="arrival-aiport"

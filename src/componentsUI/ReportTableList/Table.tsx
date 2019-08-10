@@ -1,7 +1,8 @@
 import React from 'react';
 import { IRepotsResponse } from '../../interfaces';
-import { get } from 'lodash';
+import { get, isEmpty } from 'lodash';
 import TableList from './TableList';
+import './Table.css';
 
 interface IProps {
 	listData: IRepotsResponse;
@@ -9,12 +10,19 @@ interface IProps {
 }
 
 const Table: React.FC<IProps> = ({ listData, tableTitle }) => {
+	const resultList = get(listData, 'Result', []);
 	return (
 		<div className="report-table">
 			{tableTitle && <h3 className="table-title">{tableTitle}</h3>}
-			<ul className="collection with-header">
-				<TableList data={get(listData, 'Result', [])} />
-			</ul>
+			{!isEmpty(resultList) ? (
+				<ul className="collection with-header">
+					<TableList data={resultList} />
+				</ul>
+			) : (
+				<div className="center-align">
+					<em className="center">No reports data</em>
+				</div>
+			)}
 		</div>
 	);
 };

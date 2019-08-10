@@ -1,0 +1,6 @@
+.collection-item__title--strong {
+	font-weight: 600;
+}
+.collection-item__title--italic {
+	font-style: italic;
+}

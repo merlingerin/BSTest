@@ -1,0 +1,12 @@
+input[type='date'].custom-input {
+	font-size: inherit;
+	height: inherit;
+	border-bottom: none;
+}
+
+input[type='date']:focus:not([readonly]).custom-input {
+	font-size: inherit;
+	height: inherit;
+	border-bottom: none;
+	box-shadow: none;
+}

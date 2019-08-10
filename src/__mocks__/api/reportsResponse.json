@@ -4,19 +4,31 @@
 	"ReservationPaxCountDetails": [],
 	"Result": [
 		{
-			"time": "22:30",
-			"id": 0,
-			"flightName": "QS1241"
-		},
-		{
-			"time": "09:55",
-			"id": 1,
-			"flightName": "QS1241"
-		},
-		{
-			"time": "02:45",
-			"id": 2,
-			"flightName": "QS1241"
+			"ReservationNumber": "01469868",
+			"FlightNo": "QS1440",
+			"TransferDate": "2019-08-10T00:00:00",
+			"ArrivalDate": "2019-08-10T00:00:00",
+			"DepartureDateTime": "2019-08-10T00:05:00",
+			"ArrivalDateTime": "2019-08-10T04:05:00",
+			"ReturnDate": "2019-08-21T00:00:00",
+			"ReturnDepartureDateTime": "2019-08-21T20:15:00",
+			"ReturnArrivalDateTime": "2019-08-21T00:30:00",
+			"ReturnFlightNo": "QS1441",
+			"Hotel": { "Code": "HRGPBR", "Name": "HOTEL PALM BEACH RESORT" },
+			"TravellerInfo": {
+				"PaxType": "ADT",
+				"Id": 1210905,
+				"Title": "Mr",
+				"Name": "František",
+				"Surname": "Bezslezina",
+				"IsLeader": false
+			},
+			"Supplier": "HOTEL PALM BEACH RESORT",
+			"Nation": "Czech Republic",
+			"DepartureCity": { "Name": "Brno" },
+			"ArrivalCity": { "Name": "Hurghada" },
+			"DepartureAirport": { "Name": "BRQ" },
+			"ArrivalAirport": { "Name": "HRG" }
 		}
 	]
 }

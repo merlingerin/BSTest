@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { getIsLoading, getError, getListData } from '../../redux/selectors/apiRequestState';
 import { fetchTransferList } from '../../redux/actions';
@@ -16,8 +16,9 @@ export const TransferPage: React.FC<IReportPageProps<IRepotsResponse>> = ({
 	flightsFilters,
 	listData,
 }) => {
+	const [_listData, _setList] = useState<IRepotsResponse>({} as IRepotsResponse);
 	useEffect(() => {
-		fetchReportList(flightsFilters);
+		fetchReportList(flightsFilters).then((response) => _setList(response.data));
 	}, [fetchReportList, flightsFilters]);
 	return (
 		<div className="container flights-page">
@@ -28,7 +29,7 @@ export const TransferPage: React.FC<IReportPageProps<IRepotsResponse>> = ({
 						<DefaultSpinnder />
 					</div>
 				)}
-				<Table listData={listData} />
+				{!isLoading && <Table listData={_listData} />}
 			</div>
 		</div>
 	);
